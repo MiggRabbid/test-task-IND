@@ -18,4 +18,4 @@ clean:
 	rm -rf dist
 
 tree:
-	tree -I 'node_modules|.vscode|dist|.next'
+	tree -I 'node_modules|.vscode|.next'
