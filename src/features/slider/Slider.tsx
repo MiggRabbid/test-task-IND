@@ -2,10 +2,10 @@
 
 import React, { useState } from 'react';
 import styles from './Slider.module.scss';
-import SliderButton from '@/components/ui/Buttons/SliderButton';
 import Pagination from '@/components/pagination/Pagination';
 import { TypeSliderRequest } from '@/types/global';
 import SliderItems from './components/sliderItem/SliderItems';
+import ArrowBtn from '@/components/ui/buttons/ArrowBtn/ArrowBtn';
 
 interface ISliderProps {
   slides: TypeSliderRequest;
@@ -15,28 +15,44 @@ const Slider = ({ slides }: ISliderProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    setCurrentIndex((prevIndex) => {
+      return (prevIndex + 1) % slides.length;
+    });
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
+    setCurrentIndex((prevIndex) => {
+      return (prevIndex - 1 + slides.length) % slides.length;
+    });
   };
 
   return (
-    <div className={`${styles.slider} relative w-full h-full`}>
-      <div className={`${styles.sliderContent} flex overflow-hidden`}>
-        <div
-          className={`${styles.sliderTrack} w-full transition-transform duration-500 ease-in-out`}
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        >
-          {slides.map((slide, index) => (
-            <SliderItems key={`slide-${index}`} slide={slide} />
-          ))}
+    <div className={styles.slider}>
+      <Pagination
+        currentIndex={currentIndex}
+        totalSlides={slides.length}
+        setCurrentIndex={setCurrentIndex}
+      />
+      <div className={`group ${styles.slider__content}`}>
+        <div className={styles.slider__track}>
+          {slides.map((slide, index) => {
+            const isShift = currentIndex > index;
+
+            return (
+              <SliderItems
+                key={`slide-${index}`}
+                slide={slide}
+                style={{
+                  transform: `translateX(${!!isShift ? window.innerWidth : 0}px)`,
+                }}
+              />
+            );
+          })}
         </div>
+
+        <ArrowBtn direction="prev" onClick={handlePrev} />
+        <ArrowBtn direction="next" onClick={handleNext} />
       </div>
-      <SliderButton direction="prev" onClick={handlePrev} />
-      <SliderButton direction="next" onClick={handleNext} />
-      <Pagination currentIndex={currentIndex} totalSlides={slides.length} />
     </div>
   );
 };

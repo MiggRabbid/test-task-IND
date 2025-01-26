@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import '../styles/globals.scss';
 import React from 'react';
+import AppHeader from '@/components/layout/header/AppHeader';
 
 export const metadata: Metadata = {
   title: 'STEMPS',
@@ -32,7 +33,10 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children }) => {
       <meta name="robots" content="index, follow" />
       <meta name="keywords" content={metadata.keywords as string} />
       <meta name="description" content={metadata.keywords as string} />
-      <body>{children}</body>
+      <body>
+        <AppHeader />
+        {children}
+      </body>
     </html>
   );
 };

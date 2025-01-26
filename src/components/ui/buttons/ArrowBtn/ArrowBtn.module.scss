@@ -1,0 +1,23 @@
+.arrow_btn {
+  @apply absolute top-1/2 transform -translate-y-1/2  p-2 rounded-lg bg-project-theme-foreground h-8 w-8 opacity-0 transition-opacity duration-300;
+
+  &__prev {
+    @apply left-4;
+  }
+
+  &__next {
+    @apply right-4;
+  }
+
+  &__icon {
+    @apply h-4 w-4 flex justify-center items-center;
+
+    path {
+      @apply fill-project-theme-accent;
+    }
+
+    &_prev {
+      transform: rotate(180deg);
+    }
+  }
+}

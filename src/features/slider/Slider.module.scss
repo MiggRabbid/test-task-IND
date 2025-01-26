@@ -1,30 +1,11 @@
 .slider {
-  position: relative;
-}
+  @apply relative w-full h-fit mt-10;
 
-.sliderContent {
-  overflow: hidden;
-}
-
-.sliderTrack {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-@keyframes slideIn {
-  0% {
-    transform: translateX(100%);
+  &__content {
+    @apply overflow-hidden relative;
   }
-  100% {
-    transform: translateX(0);
-  }
-}
 
-@keyframes slideOut {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
+  &__track {
+    @apply flex flex-row gap-4 transition-transform duration-500 ease-in-out;
   }
 }

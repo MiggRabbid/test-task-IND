@@ -1,0 +1,53 @@
+.app_header {
+  @apply h-fit p-4 text-base lg:text-lg grid grid-cols-4 items-center bg-project-theme-background border-t border-b sticky top-0 bottom-0 overflow-hidden z-[50];
+
+  &__logo {
+    @apply flex items-center w-fit;
+
+    &_img {
+      @apply mr-2 h-7 w-7;
+    }
+
+    &_text {
+      @apply hidden md:block;
+    }
+  }
+
+  &__nav {
+    @apply hidden lg:flex col-span-3 gap-4 lg:items-center justify-end md:justify-between;
+
+    &_links {
+      @apply hidden md:flex gap-6 shrink min-w-0;
+    }
+
+    &_link {
+      @apply relative transition-all duration-300 hover:opacity-70 cursor-pointer text-nowrap;
+    }
+  }
+
+  &__logout_btn {
+    @apply h-fit min-h-fit p-0 flex gap-4 bg-transparent hover:bg-transparent;
+
+    &__text {
+      @apply text-project-theme-dark hover:bg-transparent ml-2;
+    }
+
+    &__img {
+      @apply h-7;
+    }
+
+    &:hover {
+      span:first-child {
+        @apply opacity-70;
+      }
+    }
+  }
+
+  &__nav_mobile {
+    @apply flex lg:hidden col-span-3 justify-end;
+
+    &__menu_btn {
+      @apply bg-project-theme-foreground text-project-theme-background hover:text-project-theme-gray-second text-base leading-tight px-2 py-1 rounded transition-all ease-out duration-300;
+    }
+  }
+}
