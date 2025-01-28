@@ -5,8 +5,8 @@ const Home = async () => {
   const response = await getData();
 
   return (
-    <main className="pl-4 pr-4 w-full h-full">
-      <div className="text-2xl md:text-3xl lg:text-5xl lg:grid lg:grid-cols-4 py-0 lg:py-4 lg:border-y border-border">
+    <main className="w-full h-full">
+      <div className="text-2xl md:text-3xl lg:text-5xl lg:grid lg:grid-cols-4 mx-4 lg:py-4 lg:border-y border-border">
         <div className="p-0 lg:px-4 border-b-[1px] lg:border-b-0">
           <p className="text-[40px] leading-[44px] text-project-theme-accent py-2 lg:p-0">
             1.0

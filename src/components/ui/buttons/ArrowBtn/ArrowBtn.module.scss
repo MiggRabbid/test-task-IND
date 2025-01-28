@@ -1,22 +1,22 @@
 .arrow_btn {
-  @apply absolute top-1/2 transform -translate-y-1/2  p-2 rounded-lg bg-project-theme-foreground h-8 w-8 opacity-0 transition-opacity duration-300;
+  @apply absolute top-1/2 transform -translate-y-1/2  p-0 rounded-lg bg-project-theme-foreground h-12 w-12 opacity-0 transition-opacity duration-300 flex justify-center items-center;
 
-  &__prev {
-    @apply left-4;
+  &__left {
+    @apply left-12;
   }
 
-  &__next {
-    @apply right-4;
+  &__right {
+    @apply right-12;
   }
 
   &__icon {
-    @apply h-4 w-4 flex justify-center items-center;
+    @apply h-5 w-5;
 
     path {
       @apply fill-project-theme-accent;
     }
 
-    &_prev {
+    &_left {
       transform: rotate(180deg);
     }
   }

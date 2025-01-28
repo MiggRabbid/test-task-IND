@@ -1,5 +1,5 @@
 .pagination {
-  @apply flex lg:flex gap-2 justify-start mb-6;
+  @apply flex lg:flex gap-2 justify-start mb-6 ps-4;
 
   &__dot_item {
     @apply h-full w-0 rounded-full bg-transparent transition-all ease-in-out duration-500;
